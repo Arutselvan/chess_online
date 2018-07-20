@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var User = require('../models/User.js');
+var IITMNetworkAuth = require('iitm-network-auth');
 
 global.Buffer = global.Buffer || require('buffer').Buffer;
 
@@ -22,9 +23,19 @@ var Adminsonline = [];
 
 /* Authenticate User */
 router.post('/auth', function(req, res, next) {
-	var found = 1;
+	var found = 0;
 	var myres = {isAuthenticated: false, userId: "", sessionId: "" };
 
+	/* Auth using iitm-network-auth */
+	var user_id = req.body.user_id;
+	var password = req.body.password;
+	var auth = new IITMNetworkAuth(user_id, password, 'nfw');
+	auth.login();
+	if(auth.is_logged_in()){
+		found = 1;
+	}
+
+	
 	if(found == 0) 
 	{ 
 		re.json(myres); 

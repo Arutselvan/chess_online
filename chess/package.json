@@ -28,6 +28,7 @@
     "deasync": "^0.1.12",
     "exceljs": "^1.1.0",
     "express": "^4.16.3",
+    "iitm-network-auth": "^0.3.3",
     "json-server": "^0.12.1",
     "mongodb": "^3.0.5",
     "mongoose": "^5.0.11",
