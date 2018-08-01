@@ -26,7 +26,10 @@ router.post('/auth', function(req, res, next) {
 	var found = 0;
 	var myres = {isAuthenticated: false, userId: "", sessionId: "" };
 
-	/* Auth using iitm-network-auth */
+	/* 
+	Auth using iitm-network-auth
+	Need to test this
+	*/
 	var user_id = req.body.user_id;
 	var password = req.body.password;
 	var auth = new IITMNetworkAuth(user_id, password, 'nfw');
